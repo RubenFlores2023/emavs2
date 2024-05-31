@@ -1,7 +1,7 @@
 import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
-  {
+  /*{
     name: 'Dashboard',
     url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
@@ -9,23 +9,44 @@ export const navItems: INavData[] = [
       color: 'info',
       text: 'NEW'
     }
+  },*/
+  ///// REGISTRO DE PLANTAS
+  {
+    title: true,
+    name: 'Registro de Plantas'
+  },
+  {
+    name: 'REGISTRO',
+    url: '/plantas',
+    iconComponent: { name: 'cil-star' },
+    children: [
+      {
+        name: 'Plantines',
+        url: '/plantas/planta',
+        icon: 'nav-icon-bullet'
+      },
+
+    ]
   },
   {
     title: true,
-    name: 'Theme'
+    name: 'REPORTES'
   },
   {
-    name: 'Colors',
-    url: '/theme/colors',
-    iconComponent: { name: 'cil-drop' }
+    name: 'REPORTES',
+    url: '/reportes',
+    iconComponent: { name: 'cil-description' },
+    children: [
+      {
+        name: 'Reporte de Plantines',
+        url: '/plantas/reportes',
+        icon: 'nav-icon-bullet'
+      },
+
+    ]
   },
-  {
-    name: 'Typography',
-    url: '/theme/typography',
-    linkProps: { fragment: 'headings' },
-    iconComponent: { name: 'cil-pencil' }
-  },
-  {
+
+  /*{
     name: 'Components',
     title: true
   },
@@ -288,5 +309,5 @@ export const navItems: INavData[] = [
     url: 'https://coreui.io/angular/docs/5.x/',
     iconComponent: { name: 'cil-description' },
     attributes: { target: '_blank' }
-  }
+  }*/
 ];

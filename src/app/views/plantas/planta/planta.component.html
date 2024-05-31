@@ -1,0 +1,88 @@
+<c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Registro de Plantines</strong>
+        </c-card-header>
+        <c-card-body>
+            <form cForm>
+              <div class="mb-3">
+                <label cLabel for="especie">Nombre/Especie</label>
+                <input cFormControl
+                       id="especie"
+                       placeholder ="ingrese el nombre de la Especie"
+                       [(ngModel)] = "plantaModelo.especie"
+                       type="text"
+                       name="especie"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="porte">Porte</label>
+                <input cFormControl
+                       id="porte"
+                       placeholder="ingrese el tamaño de porte"
+                       type="text"
+                       name="porte"
+                       [(ngModel)] = "plantaModelo.porte"
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="cantidad">Cantidad</label>
+                <input cFormControl
+                       id="cantidad"
+                       placeholder="ingrese la cantidad"
+                       type="number"
+                       name="cantidad"
+                       [(ngModel)] = "plantaModelo.cantidad"
+  
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="precio">Precio</label>
+                <input cFormControl
+                       id="porciones"
+                       placeholder="ingrese porciones"
+                       type="number"
+                       name="porciones"
+                       [(ngModel)] = "plantaModelo.precio"
+  
+                />
+              </div>
+
+              <button (click)="guardarPlanta()" cButton class="me-1" color="primary" type="submit">
+                Guardar
+              </button>
+            </form>
+        </c-card-body>
+      </c-card>
+    </c-col>
+    <c-col xs="12">
+      <table cTable>
+        <thead>
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Porte</th>
+            <th scope="col">cantidad</th>
+            <th scope="col">Precio</th>
+            <th >Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for ( planta of listaPlantas; track planta; ){
+            <tr>
+              <th scope="row">1</th>
+              <td>{{planta.especie}}</td>
+              <td>{{planta.porte}}</td>
+              <td>{{planta.cantidad}}</td>
+              <td>{{planta.precio}}</td>
+              <td colspan="30">
+                <button cButton color="warning" variant="outline" (click)="verReceta(planta)">Editar</button>
+                <button (click)="eliminarPlanta(planta)" cButton color="danger" variant="outline">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </c-col>
+  </c-row>
